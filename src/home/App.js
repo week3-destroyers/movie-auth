@@ -1,6 +1,8 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieList from '../shared/MovieList.js';
+import Search from './Search.js';
+import movieListApi from '../services/movie-list-api.js';
 
 class App extends Component {
     render() {
@@ -14,7 +16,18 @@ class App extends Component {
 
         const movieList = new MovieList({ movies: [] });
         const movieListDOM = movieList.render();
+
+        const search = new Search();
+        const searchDOM = search.render();
+
+        main.appendChild(searchDOM);
         main.appendChild(movieListDOM);
+
+        movieListApi.getTrending()
+            .then(response => {
+                const movies = response.results;
+                movieList.update({ movies });
+            });
 
         return dom;
     }

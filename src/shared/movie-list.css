@@ -1,0 +1,30 @@
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-gap: 7px;
+    gap: 7px;
+    padding: 0;
+
+}
+
+.movie {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.movie h2 {
+    font-size: .9em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.movie img {
+    width: 100px;
+}
+

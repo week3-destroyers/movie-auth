@@ -16,10 +16,7 @@ class MovieList extends Component {
     renderTemplate() {
         return /*html*/ `
             <ul>
-                <li>
-                    <p>This Movie</p>
-                    <img src="./assets/movie-not-found.png">
-                </li>
+                
             </ul>
         `;
     }
