@@ -10,6 +10,7 @@ const movieListApi = {
             .then(response => response.json());
     },
     getSearch(search) {
+        console.log(search);
         const searchQuery = QUERY.stringify(search);
         const searchURL = `${URL}search/movie?api_key=${key}&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
 

@@ -17,10 +17,6 @@ class Search extends Component {
             }
         });
 
-
-
-
-
         return dom;
     }
     renderTemplate() {
