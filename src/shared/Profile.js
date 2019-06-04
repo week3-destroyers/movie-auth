@@ -4,7 +4,6 @@ import { auth } from '../services/firebase.js';
 
 class Profile extends Component {
     render() {
-        console.log(this.props);
         const dom = this.renderDOM();
 
         if(this.props.user) {
