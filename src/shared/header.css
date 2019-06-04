@@ -1,0 +1,25 @@
+#profile-image {
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile span {
+    display: block
+}
+
+.profile div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
