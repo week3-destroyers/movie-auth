@@ -9,7 +9,7 @@ class App extends Component {
     render() {
         const dom = this.renderDOM();
 
-        const header = new Header();
+        const header = new Header({ title: 'Movie Book' });
         const headerDOM = header.render();
         dom.prepend(headerDOM);
 

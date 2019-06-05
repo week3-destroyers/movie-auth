@@ -34,7 +34,7 @@ class MovieItem extends Component {
         userMovieRef.on('value', snapshot => {
             const isFavorite = Boolean(snapshot.val());
             favorite.update({ isFavorite });
-        })
+        });
 
         return dom;
     }

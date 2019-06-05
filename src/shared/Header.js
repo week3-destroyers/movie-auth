@@ -17,10 +17,18 @@ class Header extends Component {
     }
 
     renderTemplate() {
+        const title = this.props.title;
+
         return /*html*/ `
             <header>
-                <h1>Our favorite movies:</h1>
-                <!--Profile-->
+                <section>
+                    <h1>${title}</h1>
+                    <!--Profile-->
+                </section>
+                <nav class="main-nav">
+                    <a href="./">Home</a>
+                    <a href="./favorites.html">Favorites</a>
+                </nav>
             </header>
         `;
     }
