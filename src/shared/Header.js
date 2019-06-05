@@ -18,8 +18,9 @@ class Header extends Component {
 
     renderTemplate() {
         const title = this.props.title;
-
-        return /*html*/ `
+        const user = auth.currentUser;
+        if(user) {
+            return /*html*/ `
             <header>
                 <section>
                     <h1>${title}</h1>
@@ -31,6 +32,16 @@ class Header extends Component {
                 </nav>
             </header>
         `;
+        } else {
+            return /*html*/ `
+            <header>
+                <section>
+                    <h1>${title}</h1>
+                    <!--Profile-->
+                </section>
+            </header>
+        `;
+        }
     }
 }
 
