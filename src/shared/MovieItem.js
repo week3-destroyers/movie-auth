@@ -47,7 +47,7 @@ class MovieItem extends Component {
                 <div>
                     <h2>${title}</h2>
                     <div class="favorite-container"></div>
-                    <img class="movie-image" src="${image}" alt="${title}">
+                    <a href="./movie.html?id=${movie.id}"><img class="movie-image" src="${image}" alt="${title}"></a>
                 </div>
             </li>
         `;
