@@ -1,8 +1,33 @@
 import Component from '../Component.js';
+import Favorite from '../shared/Favorite.js';
+import { setFavorite, getUserMovieFavoritesRef } from '../services/actions.js';
 
 class MovieDetail extends Component {
     render() {
         const dom = this.renderDOM();
+
+        const movie = this.props.movie;
+        
+        if(movie) {
+            const id = movie.id;
+    
+            const userMovieRef = getUserMovieFavoritesRef(id);
+    
+            const container = dom.querySelector('.favorite-container');
+    
+            const favorite = new Favorite({
+                isFavorite: false,
+                onFavorite: (makeFavorite) => {
+                    setFavorite(makeFavorite, movie);
+                }
+            });
+            container.appendChild(favorite.render());
+    
+            userMovieRef.on('value', snapshot => {
+                const isFavorite = Boolean(snapshot.val());
+                favorite.update({ isFavorite });
+            });
+        }
 
         return dom;
     }
@@ -18,6 +43,7 @@ class MovieDetail extends Component {
         return /*html*/`
         <div>
             <h1>${movie.title}</h1>
+            <div class="favorite-container"></div>
             <img class="movie-image" src="${image}" alt="${title}">
             <p>${movie.overview}</p>
         </div>
