@@ -19,7 +19,6 @@ class MovieApp extends Component {
         const id = query.id;
 
         movieListApi.getMovie(id).then(movie => {
-            console.log(movie);
             movieDetail.update({ movie });
         });
 

@@ -5,7 +5,7 @@ import key from '../../config.js';
 
 const API_KEY_QUERY = `?api_key=${key}`;
 const URL = `https://api.themoviedb.org/3/`;
-const TRENDING_URL = `${URL}trending/all/day${API_KEY_QUERY}`;
+const TRENDING_URL = `${URL}trending/movie/day${API_KEY_QUERY}`;
 const DETAIL_URL = `${URL}movie/`;
 const SEARCH_URL = `${URL}search/movie${API_KEY_QUERY}`;
 

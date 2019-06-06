@@ -1,13 +1,16 @@
 import Component from '../Component.js';
 import Favorite from '../shared/Favorite.js';
+import UserList from './UserList.js';
 import { setFavorite, getUserMovieFavoritesRef } from '../services/actions.js';
+import { movieFavoritesRef } from '../services/firebase.js';
+
 
 class MovieDetail extends Component {
     render() {
         const dom = this.renderDOM();
 
         const movie = this.props.movie;
-        
+
         if(movie) {
             const id = movie.id;
     
@@ -27,6 +30,19 @@ class MovieDetail extends Component {
                 const isFavorite = Boolean(snapshot.val());
                 favorite.update({ isFavorite });
             });
+
+            const userList = new UserList({ users: [] });
+            dom.appendChild(userList.render());
+
+            movieFavoritesRef
+                .child(movie.id)
+                .on('value', snapshot => {
+                    console.log(snapshot);
+                    const value = snapshot.val();
+                    console.log(value);
+                    const users = value ? Object.values(value) : [];
+                    userList.update({ users });
+                });
         }
 
         return dom;
