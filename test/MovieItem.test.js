@@ -14,7 +14,7 @@ test('', assert => {
             <div>
                 <h2>Captain Marvel</h2>
                 <div class="favorite-container"></div>
-                <img class="movie-image" src="http://image.tmdb.org/t/p/w200/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg" alt="Captain Marvel">
+                <a href="./movie.html?id=undefined"><img class="movie-image" src="http://image.tmdb.org/t/p/w200/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg" alt="Captain Marvel"></a>
             </div>
         </li>
     `;

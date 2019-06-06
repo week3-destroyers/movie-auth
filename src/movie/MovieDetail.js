@@ -9,6 +9,9 @@ class MovieDetail extends Component {
 
     renderTemplate() {
         const movie = this.props.movie;
+        if(!movie) {
+            return '<div></div>';
+        }
         const title = movie.title || movie.name;
         const image = movie.poster_path ? `http://image.tmdb.org/t/p/w200${movie.poster_path}` : './assets/movie-not-found.png';
 
