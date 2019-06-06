@@ -1,5 +1,10 @@
+import { auth, userFavoritesRef } from '../services/firebase.js';
 
-export function setFavorite(makeFavorite, movie, userMovieRef) {
+export function setFavorite(makeFavorite, movie) {
+    const userMovieRef = userFavoritesRef
+        .child(auth.currentUser.uid)
+        .child(movie.id);
+
     if(makeFavorite) {
         return userMovieRef.set({
             id: movie.id,
