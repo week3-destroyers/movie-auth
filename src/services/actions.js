@@ -1,30 +1,39 @@
-import { auth, userFavoritesRef } from '../services/firebase.js';
+import { auth, userFavoritesRef, movieFavoritesRef } from '../services/firebase.js';
 
 export function getUserMovieFavoritesRef(id) {
-    console.log(id);
     const userMovieRef = userFavoritesRef
         .child(auth.currentUser.uid)
         .child(id);
     return userMovieRef;
 }
 
+export function getMovieUserFavoritesRef(id) {
+    const movieUserRef = movieFavoritesRef
+        .child(id)
+        .child(auth.currentUser.uid);
+    return movieUserRef;
+}
+
 export function setFavorite(makeFavorite, movie) {
     const id = movie.id;
     const userMovieRef = getUserMovieFavoritesRef(id);
-
-    // const userMovieRef = userFavoritesRef
-    //     .child(auth.currentUser.uid)
-    //     .child(movie.id);
+    const movieUserRef = getMovieUserFavoritesRef(id);
 
     if(makeFavorite) {
-        return userMovieRef.set({
+        userMovieRef.set({
             id: movie.id,
             title: movie.title || movie.name,
             poster_path: movie.poster_path 
         });
+        movieUserRef.set({
+            id: auth.currentUser.uid,
+            displayName: auth.currentUser.displayName,
+            photoUrl: auth.currentUser.photoURL
+        });
     }
     else {
-        return userMovieRef.remove();
+        userMovieRef.remove();
+        movieUserRef.remove();
     }
 }
 

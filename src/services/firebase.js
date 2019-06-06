@@ -15,6 +15,7 @@ export const app = firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const db = firebase.database();
 
-export const userFavoritesRef = db.ref('userMovies');
+export const userFavoritesRef = db.ref('favoritesByUser');
+export const movieFavoritesRef = db.ref('favoritesByMovie');
 
 window.db = db;
