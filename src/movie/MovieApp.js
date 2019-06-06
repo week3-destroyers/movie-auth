@@ -12,8 +12,7 @@ class MovieApp extends Component {
         const header = new Header({ title: 'Movie' });
         dom.insertBefore(header.render(), main);
 
-        const movieDetail = new MovieDetail({ movie: {}
-        });
+        const movieDetail = new MovieDetail();
         
         const search = window.location.search;
         const query = QUERY.parse(search);

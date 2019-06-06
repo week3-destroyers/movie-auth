@@ -1,6 +1,7 @@
 import { auth, userFavoritesRef } from '../services/firebase.js';
 
 export function getUserMovieFavoritesRef(id) {
+    console.log(id);
     const userMovieRef = userFavoritesRef
         .child(auth.currentUser.uid)
         .child(id);
