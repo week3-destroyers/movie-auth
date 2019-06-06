@@ -1,7 +1,11 @@
 import key from '../../config.js';
 
+// Retrieving movie detail
+// https://api.themoviedb.org/3/movie/87108?api_key=&language=en-US
+
 const URL = `https://api.themoviedb.org/3/`;
 const trendingURL = `${URL}trending/all/day?api_key=${key}`;
+const detailURL = `${URL}movie/`;
 
 const movieListApi = {
     getTrending() {
@@ -16,6 +20,11 @@ const movieListApi = {
             .then(response => {
                 return response.json();
             });
+    },
+    getMovie(id) {
+        const url = `${detailURL}${id}?api_key=${key}&language=en-US`;
+
+        return fetch(url).then(response => response.json());
     }
 };
 
