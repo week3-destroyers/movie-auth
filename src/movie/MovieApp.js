@@ -1,6 +1,7 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieDetail from './MovieDetail.js';
+import QUERY from '../utils/QUERY.js';
 
 class MovieApp extends Component {
     render() {
@@ -17,6 +18,13 @@ class MovieApp extends Component {
         } 
         });
         
+        const search = window.location.search;
+        const query = QUERY.parse(search);
+        const id = query.id;
+
+        if(!id) {
+            window.location = './';
+        }
         main.appendChild(movieDetail.render());
 
         return dom;
