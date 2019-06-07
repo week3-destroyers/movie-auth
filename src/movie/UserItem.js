@@ -7,7 +7,7 @@ class UserItem extends Component {
 
         return /*html*/ `
             <li>
-                <a href="">${user.displayName}</a>
+                <a href="./favorites.html?id=${user.id}">${user.displayName}</a>
                 <img src="${avatar}">
             </li>
         `;
