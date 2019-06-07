@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
-import { auth } from '../services/firebase.js';
+import { auth, usersRef } from '../services/firebase.js';
 
 const ui = new firebaseui.auth.AuthUI(auth);
 
@@ -19,7 +19,19 @@ class AuthApp extends Component {
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID
             ],
             signInSuccessUrl: './',
-            credentialHelper: firebaseui.auth.CredentialHelper.NONE
+            credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+            callbacks: {
+                signInSuccessWithAuthResult(authResult) {
+                    const user = authResult.user;
+                    usersRef.child(user.uid)
+                        .set({
+                            id: user.uid,
+                            displayName: user.displayName,
+                            photoURL: user.photoURL
+                        });
+                    return true;
+                }
+            }
         });
 
         return dom;

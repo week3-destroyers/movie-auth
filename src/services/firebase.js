@@ -17,5 +17,6 @@ export const db = firebase.database();
 
 export const userFavoritesRef = db.ref('favoritesByUser');
 export const movieFavoritesRef = db.ref('favoritesByMovie');
+export const usersRef = db.ref('users');
 
 window.db = db;

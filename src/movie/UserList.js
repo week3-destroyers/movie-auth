@@ -16,7 +16,9 @@ class UserList extends Component {
     renderTemplate() {
 
         return /*html*/ `
-            <ul></ul>
+            <ul>
+            <h2>Favorited By Users:</h2>
+            </ul>
         `;
     }
 }

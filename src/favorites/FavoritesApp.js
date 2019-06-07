@@ -1,8 +1,9 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieList from '../shared/MovieList.js';
-import { auth, userFavoritesRef } from '../services/firebase.js';
+import { auth, userFavoritesRef, usersRef } from '../services/firebase.js';
 import QUERY from '../utils/QUERY.js';
+
 
 class FavoritesApp extends Component {
     render() {
@@ -17,6 +18,19 @@ class FavoritesApp extends Component {
 
         const query = QUERY.parse(window.location.search);
         const id = query.id ? query.id : auth.currentUser.uid;
+        
+        if(id === auth.currentUser.uid) {
+            header.update({ title: 'Your Favorite Movies' });
+        }
+        else {
+            usersRef
+                .child(id)
+                .on('value', snapshot => {
+                    const value = snapshot.val();
+                    const user = value.displayName; 
+                    header.update({ title: `${user}'s favorite movies` });
+                });
+        }
 
         userFavoritesRef
             .child(id)

@@ -6,10 +6,14 @@ class UserItem extends Component {
         const avatar = user.photoURL || './assets/default-image.jpg';
 
         return /*html*/ `
+            
             <li>
+            <div class="profile">
                 <a href="./favorites.html?id=${user.id}">${user.displayName}</a>
-                <img src="${avatar}">
+                <img class="profile-image" src="${avatar}">
+            </div>
             </li>
+
         `;
     }
 }
