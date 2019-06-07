@@ -17,6 +17,11 @@ ul {
     text-align: center;
 }
 
+.movie:hover {
+    transition: 1s;
+    transform: scale(1.5)
+}
+
 .movie h2 {
     font-size: .9em;
     text-overflow: ellipsis;
@@ -24,7 +29,13 @@ ul {
     text-align: center;
 }
 
+
+
 .movie img {
     width: 100px;
+    border: .5vw solid rgba(89, 4, 158, 0.515);
+    box-shadow: 5px 5px 5px rgb(149, 52, 245);;
 }
+
+
 
