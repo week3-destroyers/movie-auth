@@ -2,7 +2,7 @@ import htmlToDOM from './utils/html-to-DOM.js';
 
 class Component {
     constructor(props) {
-        this.props = props;
+        this.props = props || {};
         this.state = {};
     }
     
