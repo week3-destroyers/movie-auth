@@ -15,7 +15,7 @@ test('make sure there is a user', assert => {
 
     const expected = /*html*/ `
         <div class="profile">
-            <img id="profile-image" src="./assets/default-image.jpg">
+            <img class="profile-image" src="./assets/default-image.jpg">
             <div>
                 <span>Static Name</span>
                 <button>Sign Out</button>
@@ -41,7 +41,7 @@ test('renders with default avatar when no photo URL', assert => {
 
     const expected = /*html*/ `
         <div class="profile">
-            <img id="profile-image" src="./assets/default-image.jpg">
+            <img class="profile-image" src="./assets/default-image.jpg">
             <div>
                 <span>Static Name</span>
                 <button>Sign Out</button>
